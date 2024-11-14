@@ -2,7 +2,6 @@
 // const router = express.Router();
 // const { authenticateToken } = require('../middleware/authenticateJWT'); // Import authenticateToken
 
-// // Define the isAdmin function, which checks if the user is an admin
 // function isAdmin(req, res, next) {
 //     if (req.user && req.user.role === 'admin') {
 //         next(); // If the user is an admin, proceed to the next middleware
@@ -12,7 +11,7 @@
 // }
 
 // // Route to update user role via PUT, token and admin checks applied
-// router.put('/users/:id/role', authenticateToken, isAdmin, async (req, res) => {
+// router.put('/:id/role', authenticateToken, isAdmin, async (req, res) => {
 //     const userId = req.params.id;
 //     const newRole = req.body.role;
     
