@@ -22,5 +22,25 @@ router.get('/fetch', async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
+router.delete('/delete/:id', async (req, res) => {
+  const { id } = req.params;
+
+  // Ensure the ID format is valid
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid ID format' });
+  }
+
+  try {
+    // Attempt to delete the contact from the database
+    const deletedContact = await Contact.findByIdAndDelete(id);
+    if (!deletedContact) {
+      return res.status(404).json({ message: 'Contact not found' });
+    }
+    res.status(200).json({ message: 'Contact deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 
 module.exports = router;

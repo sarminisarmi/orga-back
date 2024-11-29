@@ -9,6 +9,7 @@ const paypalRoutes = require('./routes/paypal');
 const contactRoutes = require('./routes/contactRoutes');
 const usersRouter = require('./routes/users');
 const paymentRoutes = require('./routes/payments');
+const cartRoutes = require('./routes/Cartroutes')
 
 const path = require('path');
 const { payments } = require('@paypal/checkout-server-sdk');
@@ -28,6 +29,9 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/paypal', paypalRoutes);
 app.use('/api/contacts', contactRoutes);
 app.use('/api', paymentRoutes);
+app.use('/api',cartRoutes);
+
+
 
 
 // Error handling middleware
